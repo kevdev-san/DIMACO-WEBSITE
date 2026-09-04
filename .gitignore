@@ -1,0 +1,37 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+
+# next.js build outputs
+/.next/
+/out/
+/build
+
+# environment variables & keys
+.env*
+*.pem
+
+# IDE & OS
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# debug & logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# local test & tools artifacts
+.playwright-mcp/
+/dimaco-home-desktop.png
+
+# raw assets & source materials (PDFs, duplicates, whatsapp references)
+/references/
+/resources/
