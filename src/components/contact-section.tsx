@@ -18,8 +18,9 @@ export function ContactSection() {
               <div className="contact-row">
                 <Phone aria-hidden="true" />
                 <div>
-                  <h3>Teléfonos de atención</h3>
-                  <p>
+                  <h3>Atención directa y cotizaciones</h3>
+                  <p className="text-sm font-bold text-[var(--color-navy)]">{company.salesContact.name}</p>
+                  <p className="mt-1">
                     <Link href={company.phone.href} className="font-semibold text-[var(--color-navy)]">{company.phone.display}</Link>
                     <span className="text-xs text-[var(--color-muted)]"> (Oficina)</span>
                     <br />

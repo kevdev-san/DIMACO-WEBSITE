@@ -7,33 +7,34 @@ export type Category = {
 
 export const categories: readonly Category[] = [
   {
-    slug: "obra-negra",
-    name: "Materiales para obra negra",
-    shortName: "Obra negra",
-    description: "Familias esenciales para cimentación, refuerzo y construcción.",
-  },
-  {
     slug: "ferreteria-fijacion-cercado",
-    name: "Ferretería, fijación y cercado",
-    shortName: "Ferretería",
-    description: "Elementos de unión, fijación y soluciones para cercado.",
+    name: "Alambres, fijación y cercado",
+    shortName: "Alambres y cercado",
+    description: "Alambre de púas, grapas, tornillería, clavos y sistemas de rejas perimetrales de alta durabilidad.",
   },
   {
     slug: "aceros-estructurales",
     name: "Aceros estructurales y comerciales",
     shortName: "Aceros",
-    description: "Perfiles y piezas para aplicaciones estructurales y comerciales.",
+    description: "Perfiles tubulares zintro, PTR, polín montén, vigas IPR, placas, HSS, canal U y redondos macizos.",
+  },
+  {
+    slug: "tuberias-tinacos-pvc",
+    name: "Tuberías, tinacos y PVC",
+    shortName: "Tuberías y Tinacos",
+    description: "Soluciones de almacenamiento Rotoplas, cisternas, tubería sanitaria, hidráulica y conexiones completas.",
   },
   {
     slug: "laminas-cubiertas",
     name: "Láminas y cubiertas",
     shortName: "Láminas",
-    description: "Soluciones para cubiertas en distintas aplicaciones constructivas.",
+    description: "Láminas acanaladas zintro, tableros metálicos y cubiertas galvateja para techumbres y fachadas.",
   },
   {
-    slug: "tuberias-tinacos-pvc",
-    name: "Tuberías, tinacos y PVC",
-    shortName: "Tuberías y PVC",
-    description: "Conducción, conexiones y almacenamiento de agua.",
+    slug: "obra-negra",
+    name: "Materiales para obra negra",
+    shortName: "Obra negra",
+    description: "Acero de refuerzo, varilla corrugada grado 42, mallas electrosoldadas y alambre recocido de amarre.",
   },
 ] as const;
+

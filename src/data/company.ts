@@ -4,6 +4,10 @@ export const company = {
   rfc: "PDL160527636",
   address:
     "Periférico Carlos Pellicer Cámara #2362, Col. Miguel Hidalgo, C.P. 86126, Villahermosa, Tabasco",
+  salesContact: {
+    name: "Patricia Quevedo",
+    title: "Atención a cotizaciones y ventas",
+  },
   phone: {
     display: "99 31 61 16 91",
     href: "tel:+529931611691",

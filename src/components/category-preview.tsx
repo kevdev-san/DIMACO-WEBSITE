@@ -3,7 +3,13 @@ import { ArrowRight, Boxes, Construction, Fence, Pipette, Warehouse } from "luci
 import { categories } from "@/data/categories";
 import { SectionReveal } from "./ui/section-reveal";
 
-const icons = [Construction, Fence, Boxes, Warehouse, Pipette];
+const categoryIconMap: Record<string, React.ComponentType<{ size?: number; strokeWidth?: number; className?: string }>> = {
+  "ferreteria-fijacion-cercado": Fence,
+  "aceros-estructurales": Boxes,
+  "tuberias-tinacos-pvc": Pipette,
+  "laminas-cubiertas": Warehouse,
+  "obra-negra": Construction,
+};
 
 export function CategoryPreview() {
   return (
@@ -18,14 +24,14 @@ export function CategoryPreview() {
         </div>
         <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-6">
           {categories.map((category, index) => {
-            const Icon = icons[index];
+            const Icon = categoryIconMap[category.slug] || Boxes;
             return (
               <Link
                 key={category.slug}
                 href={`/catalogo#${category.slug}`}
                 className={`category-card ${index < 2 ? "lg:col-span-3" : "lg:col-span-2"}`}
               >
-                <Icon aria-hidden="true" size={35} strokeWidth={1.6} />
+                <Icon size={35} strokeWidth={1.6} />
                 <span className="mt-10 text-xs font-bold uppercase tracking-[0.12em] text-[var(--color-orange)]">Categoría 0{index + 1}</span>
                 <h3 className="mt-2 text-xl font-extrabold leading-tight">{category.name}</h3>
                 <p className="mt-3 text-sm leading-6 text-[var(--color-muted)]">{category.description}</p>
