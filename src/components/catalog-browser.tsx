@@ -50,12 +50,12 @@ export function CatalogBrowser({ categories, products }: CatalogBrowserProps) {
       {/* Sticky Search & Category Navigation Bar */}
       <section
         aria-label="Controles y filtros del catálogo"
-        className="sticky top-[76px] z-30 border-b border-[var(--color-line)] bg-white/95 shadow-sm backdrop-blur"
+        className="sticky top-[70px] z-30 border-b border-[var(--color-line)] bg-white/95 shadow-sm backdrop-blur"
       >
         <div className="page-shell py-4">
-          <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
             {/* Search Box */}
-            <div className="relative flex-1 max-w-lg">
+            <div className="relative w-full max-w-md">
               <Search
                 size={18}
                 className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[var(--color-muted)]"
@@ -80,8 +80,8 @@ export function CatalogBrowser({ categories, products }: CatalogBrowserProps) {
               )}
             </div>
 
-            {/* Results counter */}
-            <div className="flex items-center gap-2 text-xs font-bold text-[var(--color-muted)]">
+            {/* Results counter right next to search box */}
+            <div className="inline-flex items-center gap-2 text-xs font-bold text-[var(--color-muted)] sm:ml-2">
               <SlidersHorizontal size={14} className="text-[var(--color-orange)]" />
               <span>
                 {filteredProducts.length}{" "}
@@ -89,6 +89,7 @@ export function CatalogBrowser({ categories, products }: CatalogBrowserProps) {
               </span>
             </div>
           </div>
+
 
           {/* Category Filter Pills */}
           <div className="mt-4 flex gap-2 overflow-x-auto pb-1 scrollbar-none">

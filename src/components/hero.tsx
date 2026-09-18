@@ -7,7 +7,7 @@ import { WhatsAppButton } from "./whatsapp-button";
 
 export function Hero() {
   return (
-    <section className="hero-grid relative min-h-[680px] overflow-hidden bg-[var(--color-navy)] text-white">
+    <section id="inicio" className="hero-grid relative min-h-[680px] overflow-hidden bg-[var(--color-navy)] text-white">
       <Image
         src="/images/facilities/dimaco-storefront-clear.jpeg"
         alt={`Fachada actual de las instalaciones de ${siteConfig.name} en Villahermosa`}

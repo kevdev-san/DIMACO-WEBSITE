@@ -10,6 +10,7 @@ export const siteConfig = {
     { label: "Catálogo", href: "/catalogo" },
     { label: "Contacto", href: "/#contacto" },
   ],
+
   quoteMessage:
     "Hola, quiero solicitar una cotización. ¿Podrían ayudarme con información sobre medidas, presentaciones y disponibilidad?",
   productQuoteMessage: (productName: string) =>

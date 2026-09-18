@@ -2,7 +2,11 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { WhatsAppButton } from "./whatsapp-button";
 
-export function QuoteCta() {
+type QuoteCtaProps = {
+  showCatalogButton?: boolean;
+};
+
+export function QuoteCta({ showCatalogButton = true }: QuoteCtaProps) {
   return (
     <section className="quote-band relative overflow-hidden bg-[var(--color-orange)] text-white">
       <div className="page-shell relative flex flex-col justify-between gap-8 py-14 lg:flex-row lg:items-center">
@@ -12,9 +16,14 @@ export function QuoteCta() {
         </div>
         <div className="flex flex-col gap-3 sm:flex-row">
           <WhatsAppButton className="whitespace-nowrap" />
-          <Link href="/catalogo" className="button-ghost-light">Ver catálogo <ArrowRight aria-hidden="true" size={18} /></Link>
+          {showCatalogButton && (
+            <Link href="/catalogo" className="button-ghost-light">
+              Ver catálogo <ArrowRight aria-hidden="true" size={18} />
+            </Link>
+          )}
         </div>
       </div>
     </section>
   );
 }
+

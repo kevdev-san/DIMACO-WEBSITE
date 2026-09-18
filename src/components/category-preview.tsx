@@ -1,15 +1,54 @@
 import Link from "next/link";
-import { ArrowRight, Boxes, Construction, Fence, Pipette, Warehouse } from "lucide-react";
+import { ArrowRight, Boxes, Construction, Fence, Warehouse } from "lucide-react";
 import { categories } from "@/data/categories";
 import { SectionReveal } from "./ui/section-reveal";
+
+function TinacoTuberiasIcon({
+  size = 35,
+  strokeWidth = 1.6,
+  className = "",
+}: {
+  size?: number;
+  strokeWidth?: number;
+  className?: string;
+}) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden="true"
+    >
+      {/* Tapa del tinaco */}
+      <path d="M10 2h4v2h-4z" />
+      {/* Cuerpo del tinaco */}
+      <rect x="5" y="4" width="14" height="16" rx="2" />
+      {/* Anillos de refuerzo */}
+      <path d="M5 9h14" />
+      <path d="M5 14h14" />
+      {/* Tubería de salida con codo */}
+      <path d="M19 16h2a1 1 0 0 1 1 1v4" />
+      {/* Tubería de alimentación */}
+      <path d="M2 6h3" />
+    </svg>
+  );
+}
 
 const categoryIconMap: Record<string, React.ComponentType<{ size?: number; strokeWidth?: number; className?: string }>> = {
   "ferreteria-fijacion-cercado": Fence,
   "aceros-estructurales": Boxes,
-  "tuberias-tinacos-pvc": Pipette,
+  "tuberias-tinacos-pvc": TinacoTuberiasIcon,
   "laminas-cubiertas": Warehouse,
   "obra-negra": Construction,
 };
+
 
 export function CategoryPreview() {
   return (
