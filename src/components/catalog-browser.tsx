@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Search, X, SlidersHorizontal, PackageOpen } from "lucide-react";
+import { Search, X, SlidersHorizontal, PackageOpen, ChevronRight } from "lucide-react";
 import type { Category } from "@/data/categories";
 import type { Product } from "@/data/products";
 import { ProductCard } from "./product-card";
@@ -80,67 +80,82 @@ export function CatalogBrowser({ categories, products }: CatalogBrowserProps) {
               )}
             </div>
 
-            {/* Results counter right next to search box */}
-            <div className="inline-flex items-center gap-2 text-xs font-bold text-[var(--color-muted)] sm:ml-2">
-              <SlidersHorizontal size={14} className="text-[var(--color-orange)]" />
-              <span>
-                {filteredProducts.length}{" "}
-                {filteredProducts.length === 1 ? "producto encontrado" : "productos encontrados"}
+            {/* Results counter and mobile scroll hint */}
+            <div className="flex items-center justify-between text-xs font-bold text-[var(--color-muted)] sm:justify-start sm:gap-2 sm:ml-2">
+              <div className="inline-flex items-center gap-2">
+                <SlidersHorizontal size={14} className="text-[var(--color-orange)]" />
+                <span>
+                  {filteredProducts.length}{" "}
+                  {filteredProducts.length === 1 ? "producto encontrado" : "productos encontrados"}
+                </span>
+              </div>
+              <span className="inline-flex items-center gap-0.5 text-[11px] font-semibold text-[var(--color-orange)] sm:hidden">
+                <span>Deslizar</span>
+                <ChevronRight size={13} className="animate-pulse" />
               </span>
             </div>
           </div>
 
-
           {/* Category Filter Pills */}
-          <div className="mt-4 flex gap-2 overflow-x-auto pb-1 scrollbar-none">
-            <button
-              type="button"
-              onClick={() => setSelectedCategory("all")}
-              className={`inline-flex shrink-0 items-center gap-2 rounded-full px-4 py-2 text-xs font-bold transition-all ${
-                selectedCategory === "all"
-                  ? "bg-[var(--color-navy)] text-white shadow-sm"
-                  : "border border-[var(--color-line)] bg-white text-[var(--color-navy)] hover:border-[var(--color-orange)] hover:text-[var(--color-orange)]"
-              }`}
-            >
-              <span>Todos</span>
-              <span
-                className={`rounded-full px-1.5 py-0.2 text-[10px] ${
+          <div className="relative mt-4">
+            <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-none pr-8 sm:pr-0">
+              <button
+                type="button"
+                onClick={() => setSelectedCategory("all")}
+                className={`inline-flex shrink-0 items-center gap-2 rounded-full px-4 py-2 text-xs font-bold transition-all ${
                   selectedCategory === "all"
-                    ? "bg-white/20 text-white"
-                    : "bg-[var(--color-surface)] text-[var(--color-muted)]"
+                    ? "bg-[var(--color-navy)] text-white shadow-sm"
+                    : "border border-[var(--color-line)] bg-white text-[var(--color-navy)] hover:border-[var(--color-orange)] hover:text-[var(--color-orange)]"
                 }`}
               >
-                {categoryCounts.all}
-              </span>
-            </button>
-
-            {categories.map((category) => {
-              const isSelected = selectedCategory === category.slug;
-              const count = categoryCounts[category.slug] || 0;
-              return (
-                <button
-                  key={category.slug}
-                  type="button"
-                  onClick={() => setSelectedCategory(category.slug)}
-                  className={`inline-flex shrink-0 items-center gap-2 rounded-full px-4 py-2 text-xs font-bold transition-all ${
-                    isSelected
-                      ? "bg-[var(--color-navy)] text-white shadow-sm"
-                      : "border border-[var(--color-line)] bg-white text-[var(--color-navy)] hover:border-[var(--color-orange)] hover:text-[var(--color-orange)]"
+                <span>Todos</span>
+                <span
+                  className={`rounded-full px-1.5 py-0.2 text-[10px] ${
+                    selectedCategory === "all"
+                      ? "bg-white/20 text-white"
+                      : "bg-[var(--color-surface)] text-[var(--color-muted)]"
                   }`}
                 >
-                  <span>{category.shortName}</span>
-                  <span
-                    className={`rounded-full px-1.5 py-0.2 text-[10px] ${
+                  {categoryCounts.all}
+                </span>
+              </button>
+
+              {categories.map((category) => {
+                const isSelected = selectedCategory === category.slug;
+                const count = categoryCounts[category.slug] || 0;
+                return (
+                  <button
+                    key={category.slug}
+                    type="button"
+                    onClick={() => setSelectedCategory(category.slug)}
+                    className={`inline-flex shrink-0 items-center gap-2 rounded-full px-4 py-2 text-xs font-bold transition-all ${
                       isSelected
-                        ? "bg-white/20 text-white"
-                        : "bg-[var(--color-surface)] text-[var(--color-muted)]"
+                        ? "bg-[var(--color-navy)] text-white shadow-sm"
+                        : "border border-[var(--color-line)] bg-white text-[var(--color-navy)] hover:border-[var(--color-orange)] hover:text-[var(--color-orange)]"
                     }`}
                   >
-                    {count}
-                  </span>
-                </button>
-              );
-            })}
+                    <span>{category.shortName}</span>
+                    <span
+                      className={`rounded-full px-1.5 py-0.2 text-[10px] ${
+                        isSelected
+                          ? "bg-white/20 text-white"
+                          : "bg-[var(--color-surface)] text-[var(--color-muted)]"
+                      }`}
+                    >
+                      {count}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Mobile horizontal scroll fade indicator */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute right-0 top-0 bottom-1 flex w-8 items-center justify-end bg-gradient-to-l from-white via-white/80 to-transparent sm:hidden"
+            >
+              <ChevronRight size={14} className="text-[var(--color-muted)] opacity-60" />
+            </div>
           </div>
         </div>
       </section>
