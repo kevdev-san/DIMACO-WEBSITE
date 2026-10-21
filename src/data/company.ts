@@ -9,14 +9,14 @@ export const company = {
     title: "Atención a cotizaciones y ventas",
   },
   phone: {
-    display: "99 31 61 16 91",
-    href: "tel:+529931611691",
+    display: "99 33 11 35 39",
+    href: "tel:+529933113539",
   },
   mobile: {
     display: "99 33 11 35 39",
     href: "tel:+529933113539",
   },
-  hours: "Lunes a viernes, de 8:00 a. m. a 5:00 p. m.",
+  hours: "Lunes a viernes de 7:00 a. m. a 5:00 p. m. y sábados de 8:00 a. m. a 1:00 p. m.",
   coverage: "todos los municipios de Tabasco",
   experience: "Más de ocho años",
   mission:

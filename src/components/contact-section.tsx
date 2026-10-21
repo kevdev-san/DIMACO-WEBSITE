@@ -22,10 +22,7 @@ export function ContactSection() {
                   <p className="text-sm font-bold text-[var(--color-navy)]">{company.salesContact.name}</p>
                   <p className="mt-1">
                     <Link href={company.phone.href} className="font-semibold text-[var(--color-navy)]">{company.phone.display}</Link>
-                    <span className="text-xs text-[var(--color-muted)]"> (Oficina)</span>
-                    <br />
-                    <Link href={company.mobile.href} className="font-semibold text-[var(--color-navy)]">{company.mobile.display}</Link>
-                    <span className="text-xs text-[var(--color-muted)]"> (Celular y WhatsApp)</span>
+                    <span className="text-xs text-[var(--color-muted)]"> (Llamadas y WhatsApp)</span>
                   </p>
                 </div>
               </div>
